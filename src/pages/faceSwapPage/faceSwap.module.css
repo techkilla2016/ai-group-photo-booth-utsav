@@ -1,0 +1,99 @@
+.FaceSwapPage {
+  border: 1px solid #fff;
+  padding: 2vw;
+  gap: 2vw;
+
+  .header {
+    border: 1px solid #fff;
+    width: 100%;
+    .logoContainer {
+      width: 15vw;
+    }
+  }
+
+  .main {
+    border: 1px solid #fff;
+    gap: 10vw;
+    .imgContainer {
+      width: 20vw;
+    }
+    .faceSwapContainer {
+      background-color: #fff;
+      justify-content: flex-start;
+      gap: 1vw;
+      padding: 2vw;
+      overflow-y: scroll;
+      height: 26.5vw;
+      /* position: relative; */
+      .singleContainer {
+        background-color: #ddd;
+        border-radius: 1vw;
+        gap: 1vw;
+        padding: 1.5vw;
+        .templateFaceContainer {
+          width: 5vw;
+          height: 5vw;
+          img {
+            border: 0.2vw solid var(--themeColor);
+            border-radius: 50%;
+          }
+        }
+
+        .arrowIconContainer {
+          width: 5vw;
+        }
+
+        .capturedFaceContainer {
+          width: 5vw;
+          height: 5vw;
+          cursor: pointer;
+          img {
+            border: 0.2vw solid var(--themeColor);
+            border-radius: 50%;
+          }
+        }
+      }
+      .allFaceContainer {
+        background-color: var(--themeColor);
+        flex-wrap: wrap;
+        border-radius: 1vw;
+        gap: 1vw;
+        padding: 1.5vw;
+        position: absolute;
+        top: 10%;
+        left: 0;
+        z-index: 1;
+        .singleFaceContainer {
+          width: 5vw;
+          height: 5vw;
+          cursor: pointer;
+          img {
+            border: 0.2vw solid var(--themeColor);
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    .imgContainer {
+      width: 15vw;
+      cursor: pointer;
+    }
+  }
+}
+
+.addFaceContainer::-webkit-scrollbar {
+  width: 0.8vw;
+}
+
+.addFaceContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.addFaceContainer::-webkit-scrollbar-thumb {
+  /* background-color: var(--themeColor2); */
+  background: linear-gradient(to bottom, #ff93df, #7a21bb);
+  border-radius: 2vw;
+}

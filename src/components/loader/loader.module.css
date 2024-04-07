@@ -1,0 +1,39 @@
+.Loader {
+  width: 70vw;
+  height: 10vw;
+  display: inline-block;
+  position: relative;
+  border: 0.2vw solid #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 1%;
+  gap: 1%;
+  .line {
+    background-color: #fff;
+    height: 90%;
+    width: 1.7%;
+    animation: animloader 1s linear infinite;
+  }
+}
+
+@media all and (min-width: 480px) {
+  .Loader {
+    width: 30vw;
+    height: 5vw;
+    display: inline-block;
+    position: relative;
+    border: 0.2vw solid #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.1% 0.4%;
+    gap: 1%;
+    .line {
+      background-color: #fff;
+      height: 90%;
+      width: 1.7%;
+      animation: animloader 1s linear infinite;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.CameraPage {
+  border: 1px solid #fff;
+
+  .main {
+    .webcamContainer {
+      width: 40vw;
+      #webcam {
+        width: 100%;
+      }
+      .capturedImage {
+        width: 100%;
+      }
+    }
+  }
+
+  .footer {
+    border: 1px solid #000;
+    gap: 2vw;
+    .topBtns {
+      border: 1px solid #000;
+      gap: 2vw;
+      .leftBtn {
+      }
+      .rightBtn {
+      }
+    }
+    .bottomBtns {
+      border: 1px solid #000;
+    }
+
+    .imgContainer {
+      cursor: pointer;
+      width: 10vw;
+    }
+  }
+}
