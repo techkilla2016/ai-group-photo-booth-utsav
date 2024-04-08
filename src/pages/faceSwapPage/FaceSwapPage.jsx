@@ -55,6 +55,7 @@ export default function FaceSwapPage({
     });
     console.log("submit list => ", submitList);
     if (selectedFaces) {
+      setGeneratedImg("");
       console.log("submitting 2nd api");
       axios
         .post("https://4f97-103-17-110-127.ngrok-free.app/send", {
