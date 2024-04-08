@@ -41,6 +41,8 @@ export default function AvatarPage({
     theme: "light",
   };
 
+  // selectedImg && console.log("selected img =>", selectedImg);
+
   // handle submit
   const handleSubmit = () => {
     setCapturedFaces("");
@@ -87,10 +89,17 @@ export default function AvatarPage({
             key={index}
             onClick={() => {
               setSelectedImgIndex(index);
-              const originalImg = filterOriginalImg(index);
-              base64(originalImg, base64Data => {
-                setSelectedImg(base64Data);
-              });
+              if (index !== 2) {
+                const originalImg = filterOriginalImg(index);
+                base64(originalImg, base64Data => {
+                  setSelectedImg(base64Data);
+                });
+              } else {
+                const originalImg = filterOriginalImg(index);
+                console.log("working");
+                console.log("selectedOriginal =>", originalImg);
+                setSelectedImg(originalImg);
+              }
             }}
             className={`${styles.singleContainer} ${
               selectedImgIndex === index ? styles.showSingleContainer : ""
