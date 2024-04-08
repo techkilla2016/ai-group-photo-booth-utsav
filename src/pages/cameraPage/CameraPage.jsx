@@ -9,6 +9,8 @@ import upload from "./../../assets/cameraPage/upload.svg";
 import capture from "./../../assets/cameraPage/capture.svg";
 import retake from "./../../assets/cameraPage/retake.svg";
 import submit from "./../../assets/cameraPage/submit.svg";
+import logo from "./../../assets/logo.png";
+import groupPhotoboothText from "./../../assets/homePage/groupPhotoboothText.svg";
 
 export default function CameraPage({ setCapturedImg }) {
   const navigate = useNavigate();
@@ -50,15 +52,22 @@ export default function CameraPage({ setCapturedImg }) {
     if (img) {
       setCapturedImg(img);
       navigate("/avatar");
-      console.log(img);
+      // console.log(img);
     } else {
       toast.error("Please capture or upload your image", toastOptions);
     }
   };
 
   return (
-    <div className={styles.CameraPage}>
-      <header className={styles.header}>logo</header>
+    <div className={`flex-col-center ${styles.CameraPage}`}>
+      <header className={`flex-row-center ${styles.header}`}>
+        <div className={`imgContainer ${styles.logoContainer}`}>
+          <img src={logo} alt="logo" />
+        </div>
+        <div className={`imgContainer ${styles.textContainer}`}>
+          <img src={groupPhotoboothText} alt="selectTemplateText" />
+        </div>
+      </header>
 
       <main className={styles.main}>
         <div className={styles.webcamContainer}>

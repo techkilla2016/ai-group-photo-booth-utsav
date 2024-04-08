@@ -44,7 +44,7 @@ export default function AvatarPage({
   // handle submit
   const handleSubmit = () => {
     if (selectedImg) {
-      console.log("submitting");
+      console.log("submitting to 1st api");
       axios
         .post("https://4f97-103-17-110-127.ngrok-free.app/rec", {
           image: capturedImg.split(",")[1],
@@ -53,6 +53,7 @@ export default function AvatarPage({
         .then(function (response) {
           setCapturedFaces(response.data.first);
           setTemplateFaces(response.data.second);
+          console.log("1st api =>", response);
         })
         .catch(function (error) {
           console.log(error);

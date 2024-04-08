@@ -1,9 +1,25 @@
 .CameraPage {
   border: 1px solid #fff;
+  gap: 2vw;
+  padding: 2vw;
+  .header {
+    width: 100%;
+    justify-content: flex-start;
+    .logoContainer {
+      width: 15vw;
+      /* border: 1px solid #000; */
+    }
+    .textContainer {
+      width: 25vw;
+      margin-left: 22%;
+      /* border: 1px solid #000; */
+    }
+  }
 
   .main {
     .webcamContainer {
-      width: 40vw;
+      width: 25vw;
+      border: 0.2vw solid var(--themeColor);
       #webcam {
         width: 100%;
       }

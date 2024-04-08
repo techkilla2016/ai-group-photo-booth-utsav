@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./faceSwap.module.css";
 import Loader from "../../components/loader/Loader";
 import axios from "axios";
@@ -20,6 +20,7 @@ export default function FaceSwapPage({
   const [isSelected, setIsSelected] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState();
   const [selectedFaces, setSelectedFaces] = useState([]);
+  const [submitList, setSubmitList] = useState({});
 
   // handle select face
   const handleSelectFace = (item, index) => {
@@ -28,7 +29,7 @@ export default function FaceSwapPage({
     setSelectedFaces(newSelectedFaces);
   };
 
-  selectedFaces && console.log(selectedFaces);
+  selectedFaces && console.log("selectedFaces =>", selectedFaces);
 
   // toast options
   const toastOptions = {
@@ -39,20 +40,47 @@ export default function FaceSwapPage({
     theme: "light",
   };
 
+  /*  useEffect(() => {
+    let selectList = {};
+    templateFaces?.forEach((item, index) => {
+      selectedFaces?.forEach((item2, index2) => {
+        selectList[index] = item2 ? index2 : -1;
+      });
+    });
+    setSubmitList(selectList);
+  }, [selectedFaces]); */
+
+  useEffect(() => {
+    const selectList = {};
+
+    templateFaces?.forEach((_, index) => {
+      selectList[index] = -1;
+    });
+
+    selectedFaces?.forEach((itemIndex, selectedIdx) => {
+      if (itemIndex !== -1 && templateFaces[itemIndex] !== undefined) {
+        selectList[itemIndex] = selectedIdx;
+      }
+    });
+
+    setSubmitList(selectList);
+  }, [selectedFaces]);
+
+  submitList && console.log(submitList);
+
   // handle submit
   const handleSubmit = () => {
     if (selectedFaces) {
-      console.log("submitting");
+      console.log("submitting 2nd api");
       axios
         .post("https://4f97-103-17-110-127.ngrok-free.app/send", {
           image: capturedImg.split(",")[1],
           choice: selectedImg.split(",")[1],
-          map: selectedFaces,
+          map: Object.values(submitList),
         })
         .then(function (response) {
-          /* setCapturedFaces(response.data.first);
-          setTemplateFaces(response.data.second); */
-          console.log(response);
+          setGeneratedImg(response.data.result);
+          console.log("2nd api=>", response);
         })
         .catch(function (error) {
           console.log(error);
