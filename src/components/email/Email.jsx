@@ -65,20 +65,26 @@ export default function Email({ setShowEmail, url }) {
     if (!loading) {
       if (userEmail) {
         setLoading(true);
-        axios
-          .post("https://4f97-103-17-110-127.ngrok-free.app/send", {
-            email: userEmail,
-          })
-          .then(function (response) {
-            console.log("email api =>", response);
-            setLoading(false);
-            toast.success("Email has sent successfully", toastOptions);
-          })
-          .catch(function (error) {
-            console.log(error);
-            toast.error("Something wrong...", toastOptions);
-          });
-        navigate("/");
+        setTimeout(() => {
+          axios
+            .post(
+              "https://adp24companyday.com/aiphotobooth/aiphotobooth_utsav/emailer/",
+              {
+                email: userEmail,
+                url: url,
+              }
+            )
+            .then(function (response) {
+              console.log("email api response =>", response);
+              setLoading(false);
+              toast.success("Email has sent successfully", toastOptions);
+            })
+            .catch(function (error) {
+              console.log(error);
+              toast.error("Something wrong...", toastOptions);
+            });
+          navigate("/");
+        }, 2000);
       } else {
         toast.error("Please enter a correct email", toastOptions);
       }
