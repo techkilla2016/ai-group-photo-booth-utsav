@@ -65,11 +65,11 @@ export default function Email({ setShowEmail, url }) {
     if (!loading) {
       if (userEmail) {
         setLoading(true);
-        /*  setTimeout(() => {
+        setTimeout(() => {
           setLoading(false);
+          toast.success("Email has sent successfully", toastOptions);
           navigate("/");
-        }, 3000); */
-        toast.success("Email has sent successfully", toastOptions);
+        }, 3000);
       } else {
         toast.error("Please enter a correct email", toastOptions);
       }
