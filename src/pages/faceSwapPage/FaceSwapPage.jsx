@@ -18,6 +18,7 @@ export default function FaceSwapPage({
   setGeneratedImg,
   templateFaces,
   capturedFaces,
+  setUrl,
 }) {
   const navigate = useNavigate();
   const [isSelected, setIsSelected] = useState(false);
@@ -46,6 +47,24 @@ export default function FaceSwapPage({
     theme: "light",
   };
 
+  // image uploading on server
+  const getUrl = url => {
+    axios
+      .post(
+        "https://adp24companyday.com/aiphotobooth/aiphotobooth_garnier/upload.php",
+        {
+          img: url,
+        }
+      )
+      .then(function (response) {
+        setUrl(response.data.url);
+        console.log("image uploaded on server");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   // handle submit
   const handleSubmit = () => {
     templateFaces?.forEach((_, index) => {
@@ -56,6 +75,7 @@ export default function FaceSwapPage({
     console.log("submit list => ", submitList);
     if (selectedFaces) {
       setGeneratedImg("");
+      setUrl("");
       console.log("submitting 2nd api");
       axios
         .post("https://4f97-103-17-110-127.ngrok-free.app/send", {
@@ -65,6 +85,7 @@ export default function FaceSwapPage({
         })
         .then(function (response) {
           setGeneratedImg(response.data.result);
+          getUrl(response.data.result);
           console.log("2nd api=>", response);
         })
         .catch(function (error) {

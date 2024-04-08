@@ -14,6 +14,7 @@ export default function App() {
   const [generatedImg, setGeneratedImg] = useState("");
   const [templateFaces, setTemplateFaces] = useState();
   const [capturedFaces, setCapturedFaces] = useState();
+  const [url, setUrl] = useState("");
   return (
     <BrowserRouter>
       <Routes>
@@ -50,6 +51,7 @@ export default function App() {
               setGeneratedImg={setGeneratedImg}
               templateFaces={templateFaces}
               capturedFaces={capturedFaces}
+              setUrl={setUrl}
             />
           }
         />
@@ -61,6 +63,8 @@ export default function App() {
             <OutputPage
               generatedImg={generatedImg}
               setGeneratedImg={setGeneratedImg}
+              url={url}
+              setUrl={setUrl}
             />
           }
         />

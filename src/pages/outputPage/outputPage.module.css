@@ -21,6 +21,7 @@
   }
 
   .footer {
+    gap: 1vw;
     .imgContainer {
       width: 15vw;
       cursor: pointer;
@@ -31,7 +32,7 @@
 @media all and (max-width: 480px) {
   .OutputPage {
     padding: 4vw;
-    gap: 15vw;
+    gap: 10vw;
 
     .header {
       flex-direction: column;
@@ -50,6 +51,7 @@
     }
 
     .footer {
+      flex-direction: column;
       .imgContainer {
         width: 40vw;
       }
