@@ -29,7 +29,7 @@
   }
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 991px) {
   .OutputPage {
     padding: 4vw;
     gap: 10vw;

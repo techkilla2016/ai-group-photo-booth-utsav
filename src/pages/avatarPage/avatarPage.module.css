@@ -69,7 +69,7 @@
   }
 }
 
-@media all and (max-width: 480px) {
+@media all and (max-width: 991px) {
   .AvatarPage {
     padding: 4vw;
     gap: 15vw;

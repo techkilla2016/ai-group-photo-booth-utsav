@@ -12,18 +12,18 @@
   align-items: center;
   z-index: 100;
   .container {
-    width: 90%;
+    width: 80vw;
     height: 70vw;
     background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5vw;
+    gap: 10vw;
     position: relative;
 
     .input {
-      width: 80vw;
+      width: 80%;
       border: 0.4vw solid var(--themeColor);
       outline: 0;
       padding: 2vw 4vw;
@@ -54,7 +54,7 @@
 @media all and (min-width: 480px) {
   .Email {
     .container {
-      width: 50vw;
+      width: 40vw;
       height: 30vw;
       gap: 4vw;
       padding: 2vw;

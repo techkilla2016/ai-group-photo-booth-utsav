@@ -1,6 +1,6 @@
 import React, { useState, CSSProperties } from "react";
 import styles from "./email.module.css";
-
+import axios from "axios";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { SyncLoader } from "react-spinners";
 
@@ -65,11 +65,20 @@ export default function Email({ setShowEmail, url }) {
     if (!loading) {
       if (userEmail) {
         setLoading(true);
-        setTimeout(() => {
-          setLoading(false);
-          toast.success("Email has sent successfully", toastOptions);
-          navigate("/");
-        }, 3000);
+        axios
+          .post("https://4f97-103-17-110-127.ngrok-free.app/send", {
+            email: userEmail,
+          })
+          .then(function (response) {
+            console.log("email api =>", response);
+            setLoading(false);
+            toast.success("Email has sent successfully", toastOptions);
+          })
+          .catch(function (error) {
+            console.log(error);
+            toast.error("Something wrong...", toastOptions);
+          });
+        navigate("/");
       } else {
         toast.error("Please enter a correct email", toastOptions);
       }
@@ -93,7 +102,7 @@ export default function Email({ setShowEmail, url }) {
           onChange={e => setUserEmail(e.target.value)}
           className={styles.input}
         />
-        <Keyboard
+        {/*  <Keyboard
           keyboardRef={r => {
             if (window) window.keyboard = r;
           }}
@@ -103,7 +112,7 @@ export default function Email({ setShowEmail, url }) {
           }}
           onKeyPress={onKeyPress}
           className={styles.keyboard}
-        />
+        /> */}
 
         <div
           onClick={handleSubmit}
