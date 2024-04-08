@@ -44,3 +44,10 @@ img {
   align-items: center;
   justify-content: center;
 }
+
+@media all and (max-width: 480px) {
+  body {
+    border: 0.4vw solid var(--themeColor);
+    border-radius: 2.5vw;
+  }
+}

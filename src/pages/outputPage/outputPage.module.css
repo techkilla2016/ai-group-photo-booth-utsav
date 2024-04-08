@@ -27,3 +27,32 @@
     }
   }
 }
+
+@media all and (max-width: 480px) {
+  .OutputPage {
+    padding: 4vw;
+    gap: 15vw;
+
+    .header {
+      flex-direction: column;
+      gap: 5vw;
+      .logoContainer {
+        width: 35vw;
+      }
+      .textContainer {
+        width: 70vw;
+        margin-left: 0;
+      }
+    }
+
+    .main {
+      width: 50vw;
+    }
+
+    .footer {
+      .imgContainer {
+        width: 40vw;
+      }
+    }
+  }
+}

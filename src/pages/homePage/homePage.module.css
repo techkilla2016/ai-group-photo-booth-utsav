@@ -68,3 +68,36 @@
     }
   }
 }
+
+@media all and (max-width: 480px) {
+  .HomePage {
+    padding: 4vw;
+    gap: 10vw;
+    .header {
+      flex-direction: column;
+      gap: 5vw;
+      .logoContainer {
+        width: 35vw;
+      }
+      .textContainer {
+        width: 50vw;
+        margin-left: 0;
+      }
+    }
+
+    .main {
+      flex-wrap: wrap;
+      gap: 4vw;
+      .singleContainer {
+        width: 25vw;
+      }
+    }
+
+    .footer {
+      .imgContainer {
+        cursor: pointer;
+        width: 40vw;
+      }
+    }
+  }
+}

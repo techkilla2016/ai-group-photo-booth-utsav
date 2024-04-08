@@ -56,3 +56,54 @@
     }
   }
 }
+
+@media all and (max-width: 480px) {
+  .CameraPage {
+    padding: 4vw;
+    gap: 15vw;
+    .header {
+      flex-direction: column;
+      gap: 5vw;
+      .logoContainer {
+        width: 35vw;
+      }
+      .textContainer {
+        width: 70vw;
+        margin-left: 0;
+      }
+    }
+
+    .main {
+      .webcamContainer {
+        height: 62vw;
+        border: 0.8vw solid var(--themeColor);
+        background-color: var(--themeColor);
+        border-radius: 4vw;
+        #webcam {
+          border-radius: 4vw;
+        }
+        .capturedImage {
+          border-radius: 4vw;
+        }
+      }
+    }
+
+    .footer {
+      gap: 5vw;
+      .topBtns {
+        gap: 5vw;
+        .leftBtn {
+        }
+        .rightBtn {
+        }
+      }
+      .bottomBtns {
+      }
+
+      .imgContainer {
+        cursor: pointer;
+        width: 40vw;
+      }
+    }
+  }
+}
