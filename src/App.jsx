@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HomePage, CameraPage, AvatarPage, FaceSwapPage } from "./pages";
+import {
+  HomePage,
+  CameraPage,
+  AvatarPage,
+  FaceSwapPage,
+  OutputPage,
+} from "./pages";
 
 export default function App() {
   const [capturedImg, setCapturedImg] = useState("");
@@ -44,6 +50,17 @@ export default function App() {
               setGeneratedImg={setGeneratedImg}
               templateFaces={templateFaces}
               capturedFaces={capturedFaces}
+            />
+          }
+        />
+
+        {/* output page */}
+        <Route
+          path="/output"
+          element={
+            <OutputPage
+              generatedImg={generatedImg}
+              setGeneratedImg={setGeneratedImg}
             />
           }
         />

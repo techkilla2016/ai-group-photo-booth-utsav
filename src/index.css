@@ -10,7 +10,8 @@
 }
 
 body {
-  border: 1px solid #000;
+  border: 0.2vw solid var(--themeColor);
+  border-radius: 0.5vw;
   background-image: url("../src/assets/pc-bg.png");
   background-position: center;
   background-size: cover;

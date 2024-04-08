@@ -43,6 +43,8 @@ export default function AvatarPage({
 
   // handle submit
   const handleSubmit = () => {
+    setCapturedFaces("");
+    setTemplateFaces("");
     if (selectedImg) {
       console.log("submitting to 1st api");
       axios

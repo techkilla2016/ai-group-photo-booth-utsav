@@ -4,9 +4,11 @@ import Loader from "../../components/loader/Loader";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 import logo from "./../../assets/logo.png";
 import swapFace from "./../../assets/faceSwapPage/swapFace.svg";
+import swapYourFaceText from "./../../assets/faceSwapPage/swapYourFaceText.svg";
 import arrow from "./../../assets/faceSwapPage/arrow.svg";
 import addUser from "./../../assets/faceSwapPage/addUser.svg";
 
@@ -17,6 +19,7 @@ export default function FaceSwapPage({
   templateFaces,
   capturedFaces,
 }) {
+  const navigate = useNavigate();
   const [isSelected, setIsSelected] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState();
   const [selectedFaces, setSelectedFaces] = useState([]);
@@ -27,6 +30,9 @@ export default function FaceSwapPage({
     const newSelectedFaces = [...selectedFaces];
     newSelectedFaces[selectedIndex] = `data:image/png;base64,${item}`;
     setSelectedFaces(newSelectedFaces);
+    const key = selectedIndex;
+    const value = index;
+    submitList[key] = value;
   };
 
   selectedFaces && console.log("selectedFaces =>", selectedFaces);
@@ -40,36 +46,14 @@ export default function FaceSwapPage({
     theme: "light",
   };
 
-  /*  useEffect(() => {
-    let selectList = {};
-    templateFaces?.forEach((item, index) => {
-      selectedFaces?.forEach((item2, index2) => {
-        selectList[index] = item2 ? index2 : -1;
-      });
-    });
-    setSubmitList(selectList);
-  }, [selectedFaces]); */
-
-  useEffect(() => {
-    const selectList = {};
-
-    templateFaces?.forEach((_, index) => {
-      selectList[index] = -1;
-    });
-
-    selectedFaces?.forEach((itemIndex, selectedIdx) => {
-      if (itemIndex !== -1 && templateFaces[itemIndex] !== undefined) {
-        selectList[itemIndex] = selectedIdx;
-      }
-    });
-
-    setSubmitList(selectList);
-  }, [selectedFaces]);
-
-  submitList && console.log(submitList);
-
   // handle submit
   const handleSubmit = () => {
+    templateFaces?.forEach((_, index) => {
+      if (submitList[index] === undefined) {
+        submitList[index] = -1;
+      }
+    });
+    console.log("submit list => ", submitList);
     if (selectedFaces) {
       console.log("submitting 2nd api");
       axios
@@ -86,7 +70,7 @@ export default function FaceSwapPage({
           console.log(error);
           toast.error("Something wrong...", toastOptions);
         });
-      //   navigate("/face-swap");
+      navigate("/output");
     } else {
       toast.error(
         "Please select an image or capture your photo again...",
@@ -97,9 +81,12 @@ export default function FaceSwapPage({
 
   return (
     <div className={`flex-col-center ${styles.FaceSwapPage}`}>
-      <header className={styles.header}>
+      <header className={`flex-row-center ${styles.header}`}>
         <div className={`imgContainer ${styles.logoContainer}`}>
           <img src={logo} alt="logo" />
+        </div>
+        <div className={`imgContainer ${styles.textContainer}`}>
+          <img src={swapYourFaceText} alt="swapYourFaceText" />
         </div>
       </header>
 
@@ -130,7 +117,7 @@ export default function FaceSwapPage({
 
                 <div
                   onClick={() => {
-                    setIsSelected(prev => !prev);
+                    setIsSelected(true);
                     setSelectedIndex(index);
                   }}
                   className={`imgContainer ${styles.capturedFaceContainer}`}
@@ -149,6 +136,7 @@ export default function FaceSwapPage({
                   <div
                     onClick={() => {
                       handleSelectFace(item, index);
+                      setIsSelected(false);
                     }}
                     className={`imgContainer ${styles.singleFaceContainer}`}
                   >
@@ -161,15 +149,17 @@ export default function FaceSwapPage({
         </main>
       )}
 
-      <footer className={styles.footer}>
-        <div
-          onClick={handleSubmit}
-          className={`imgContainer ${styles.imgContainer}`}
-        >
-          <img src={swapFace} alt="submit" />
-        </div>
-        <ToastContainer />
-      </footer>
+      {templateFaces && capturedFaces && (
+        <footer className={styles.footer}>
+          <div
+            onClick={handleSubmit}
+            className={`imgContainer ${styles.imgContainer}`}
+          >
+            <img src={swapFace} alt="submit" />
+          </div>
+          <ToastContainer />
+        </footer>
+      )}
     </div>
   );
 }

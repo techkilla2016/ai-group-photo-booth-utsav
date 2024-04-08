@@ -9,6 +9,7 @@
   align-items: center;
   padding: 0 1%;
   gap: 1%;
+  margin-top: 10vw;
   .line {
     background-color: #fff;
     height: 90%;

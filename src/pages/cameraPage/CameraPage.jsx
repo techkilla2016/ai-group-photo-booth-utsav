@@ -9,8 +9,8 @@ import upload from "./../../assets/cameraPage/upload.svg";
 import capture from "./../../assets/cameraPage/capture.svg";
 import retake from "./../../assets/cameraPage/retake.svg";
 import submit from "./../../assets/cameraPage/submit.svg";
+import headingTextCapture from "./../../assets/cameraPage/headingTextCapture.svg";
 import logo from "./../../assets/logo.png";
-import groupPhotoboothText from "./../../assets/homePage/groupPhotoboothText.svg";
 
 export default function CameraPage({ setCapturedImg }) {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function CameraPage({ setCapturedImg }) {
 
   // handle upload template
   const handleUploadPicture = () => {
-    uploadTemplateRef.current.click();
+    uploadPictureRef.current.click();
   };
 
   // upload template
@@ -65,7 +65,7 @@ export default function CameraPage({ setCapturedImg }) {
           <img src={logo} alt="logo" />
         </div>
         <div className={`imgContainer ${styles.textContainer}`}>
-          <img src={groupPhotoboothText} alt="selectTemplateText" />
+          <img src={headingTextCapture} alt="selectTemplateText" />
         </div>
       </header>
 

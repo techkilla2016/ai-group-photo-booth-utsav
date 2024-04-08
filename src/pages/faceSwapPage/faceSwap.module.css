@@ -1,18 +1,24 @@
 .FaceSwapPage {
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
   padding: 2vw;
   gap: 2vw;
 
   .header {
-    border: 1px solid #fff;
     width: 100%;
+    justify-content: flex-start;
     .logoContainer {
       width: 15vw;
+      /* border: 1px solid #000; */
+    }
+    .textContainer {
+      width: 30vw;
+      margin-left: 18.9%;
+      /* border: 1px solid #000; */
     }
   }
 
   .main {
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     gap: 10vw;
     .imgContainer {
       width: 20vw;
@@ -54,14 +60,14 @@
         }
       }
       .allFaceContainer {
-        background-color: var(--themeColor);
+        background-color: #fff;
         flex-wrap: wrap;
         border-radius: 1vw;
         gap: 1vw;
         padding: 1.5vw;
         position: absolute;
-        top: 10%;
-        left: 0;
+        top: 3%;
+        right: 5%;
         z-index: 1;
         .singleFaceContainer {
           width: 5vw;
