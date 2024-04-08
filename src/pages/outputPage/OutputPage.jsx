@@ -32,11 +32,9 @@ export default function OutputPage({ generatedImg, setGeneratedImg }) {
 
       {generatedImg && (
         <main className={styles.main}>
-          <div
-            ref={downloadRef}
-            className={`imgContainer ${styles.imgContainer}`}
-          >
+          <div className={`imgContainer ${styles.imgContainer}`}>
             <img
+              ref={downloadRef}
               src={`data:image/webp;base64,${generatedImg}`}
               alt="generated-image"
             />
