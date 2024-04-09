@@ -78,7 +78,7 @@ export default function FaceSwapPage({
       setUrl("");
       // console.log("submitting 2nd api");
       axios
-        .post("https://4f97-103-17-110-127.ngrok-free.app/send", {
+        .post("https://7e4f-103-17-110-127.ngrok-free.app/send", {
           image: capturedImg.split(",")[1],
           choice: selectedImg.split(",")[1],
           map: Object.values(submitList),
