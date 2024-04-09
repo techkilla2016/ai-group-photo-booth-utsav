@@ -48,7 +48,7 @@ export default function AvatarPage({
     setCapturedFaces("");
     setTemplateFaces("");
     if (selectedImg) {
-      console.log("submitting to 1st api");
+      // console.log("submitting to 1st api");
       axios
         .post("https://4f97-103-17-110-127.ngrok-free.app/rec", {
           image: capturedImg.split(",")[1],
@@ -96,8 +96,8 @@ export default function AvatarPage({
                 });
               } else {
                 const originalImg = filterOriginalImg(index);
-                console.log("working");
-                console.log("selectedOriginal =>", originalImg);
+                // console.log("working");
+                // console.log("selectedOriginal =>", originalImg);
                 setSelectedImg(originalImg);
               }
             }}

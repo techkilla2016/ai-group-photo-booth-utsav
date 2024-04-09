@@ -36,7 +36,7 @@ export default function FaceSwapPage({
     submitList[key] = value;
   };
 
-  selectedFaces && console.log("selectedFaces =>", selectedFaces);
+  // selectedFaces && console.log("selectedFaces =>", selectedFaces);
 
   // toast options
   const toastOptions = {
@@ -76,7 +76,7 @@ export default function FaceSwapPage({
     if (selectedFaces) {
       setGeneratedImg("");
       setUrl("");
-      console.log("submitting 2nd api");
+      // console.log("submitting 2nd api");
       axios
         .post("https://4f97-103-17-110-127.ngrok-free.app/send", {
           image: capturedImg.split(",")[1],
@@ -160,6 +160,7 @@ export default function FaceSwapPage({
                       handleSelectFace(item, index);
                       setIsSelected(false);
                     }}
+                    key={index}
                     className={`imgContainer ${styles.singleFaceContainer}`}
                   >
                     <img src={`data:image/webp;base64,${item}`} alt="face" />
